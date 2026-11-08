@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+            <!-- here we are creatiing the object of the Student class using spring bean we need to 
+           import the package and need to give the name for the object 
+            -->
+           <bean class="com.spring.Students" id = "st">
+           <!-- Here we are using the propert tag to assign the values of the Studentclass-->
+           <property name="Strudentid" value="1"></property>
+           <property name="studentname" value="Uday Kumar"></property>
+           <property name="marks" value="100"></property>
+           </bean> 
+           
+           <!-- if we create 2 beans for the same class then the spring will handle that class 
+           as the single ton design pattern
+           -->
+           
+           <!--  below is the another way to assign the values using the Constructor tag-->
+           <bean class="com.spring.Students" id="st1">
+           <constructor-arg value="2"></constructor-arg>
+           <constructor-arg value="Shan"></constructor-arg>
+           <constructor-arg value="100"></constructor-arg>
+           </bean>
+           
+           
+          
+
+</beans>
