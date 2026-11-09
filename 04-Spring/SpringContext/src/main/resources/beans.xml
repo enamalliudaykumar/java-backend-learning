@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
            http://www.springframework.org/schema/beans
-           https://www.springframework.org/schema/beans/spring-beans.xsd">
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder
+            location="classpath:application.properties"/>
             <!-- here we are creatiing the object of the Student class using spring bean we need to 
            import the package and need to give the name for the object 
-            -->
+            -->         
+            
+            
            <bean class="com.spring.Students" id = "st">
            <!-- Here we are using the propert tag to assign the values of the Studentclass-->
            <property name="Strudentid" value="1"></property>
@@ -23,6 +31,57 @@
            <constructor-arg value="2"></constructor-arg>
            <constructor-arg value="Shan"></constructor-arg>
            <constructor-arg value="100"></constructor-arg>
+           </bean>
+           
+           <!-- The below is for to  assign List of values for the class 
+           To assign the values for the list we need to use the list tag property like below
+           if we have the map variable we need to use the entry set here          
+                      -->
+           
+           <bean class = "com.spring.listMap.Employee" id = "lm">
+           <property name="employee_name" value="Ganesh"></property>
+           <property name="employee_id" value="1104"></property>
+           <property name="skills">
+           <list>
+           <value>Java</value>
+           <value>Spring</value>
+           </list>
+           </property>
+           <property name="prijectjump">
+           <map>
+           <entry key="1" value="Banking"></entry>
+           <entry key="4" value="Health" ></entry>
+           </map>
+           </property>
+           </bean>
+           
+           
+           <!-- Now the below is for the dependecy injection. if one class is dependent with another class
+           we will use ref keyword ref keyword i smanually we are linking the 2 class
+           in Spring we Autowire where its automatically links the class This are 3 types
+           1. byType it see the id  in the usersclass
+           2.byName it see the  name in the usersclass
+           3.Constructor
+           
+           -->
+           <bean class= "com.spring.DI.Users" id ="users" autowire="byName"> <!-- byName-->
+           <property name="userName" value="Shan"></property>
+           <property name="userid" value="0407"></property>
+           <property name="address" ref="address"></property>
+           </bean>
+           
+           <bean class= "com.spring.DI.Address" id ="address">
+           <property name="line1" value="West Varathuru"></property>
+           <property name="pincode" value="517541"></property>
+           <property name="state" value="Andhra Pradesh"></property>
+           </bean>
+           
+           
+           <!-- if we need to pass the values dynamic we use this in the properties and syntax below-->
+           <bean class="com.spring.DI.Products" id="prd">
+           <property name="productid" value="${ProductId}"></property>
+           <property name="price" value = "${Price}"></property>
+           <property name="productName" value ="${ProductName}"></property>
            </bean>
            
            
