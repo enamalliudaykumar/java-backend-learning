@@ -12,7 +12,8 @@
             location="classpath:application.properties"/>
             <!-- here we are creatiing the object of the Student class using spring bean we need to 
            import the package and need to give the name for the object 
-            -->         
+            -->   
+            <context:component-scan base-package="com"></context:component-scan>      
             
             
            <bean class="com.spring.Students" id = "st">

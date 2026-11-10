@@ -7,9 +7,7 @@ public class Employee {
 
 	private String employee_name;
 	private int employee_id;
-	public Map<Integer, String> getPrijectjump() {
-		return prijectjump;
-	}
+	
 
 	public void setPrijectjump(Map<Integer, String> prijectjump) {
 		this.prijectjump = prijectjump;
