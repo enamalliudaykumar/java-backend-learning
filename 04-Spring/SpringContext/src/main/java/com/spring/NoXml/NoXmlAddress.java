@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
  */
 public class NoXmlAddress {
 	
-	private int doorno;
-	private String state;
+	private int doorno = 103;
+	private String state="Andhra Pradesh";
 	@Override
 	public String toString() {
 		return "NoXmlAddress [doorno=" + doorno + ", state=" + state + "]";
